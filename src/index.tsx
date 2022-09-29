@@ -5,19 +5,23 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { GlobalStyles } from '~/components/commons';
 import { LoadingProvider } from '~/context/LoadingContext';
+import { Provider } from 'react-redux';
+import { store } from './stores/store';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <GlobalStyles>
-        <LoadingProvider>
-          <App />
-        </LoadingProvider>
-      </GlobalStyles>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <GlobalStyles>
+          <LoadingProvider>
+            <App />
+          </LoadingProvider>
+        </GlobalStyles>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );
 
