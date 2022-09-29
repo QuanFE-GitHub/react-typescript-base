@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { Loading } from '~/components/commons';
+import { Loading } from '../components/commons';
 
 type TLoadingProps = {
   children: React.ReactNode;

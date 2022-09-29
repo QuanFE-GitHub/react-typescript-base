@@ -1,5 +1,5 @@
-import { Login } from '~/pages/admin';
-import ForgotPassword from '~/pages/admin/ForgotPassword/ForgotPassword';
+import { Login } from '../pages/admin';
+import ForgotPassword from '../pages/admin/ForgotPassword/ForgotPassword';
 
 export const authRoutes = [
   {
