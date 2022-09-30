@@ -1,6 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { AuthLayout } from './layouts';
 import { authRoutes } from './utils/routers';
+import './App.less';
 
 function App() {
   return (

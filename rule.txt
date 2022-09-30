@@ -1,11 +1,7 @@
-- Component Name:
-+ Capitalize first letter
-ex: Loading, Toast, Alert
-
 COMPONENTS:
   - Folder Name -> PascalCase
   - File Js components UI -> PascalCase
-  - Import src/*
+  - Import ./*
   - Image file name img_*_*
   - Icon file name icon_*_*
   - Image variable name -> camelCase -> img*
@@ -22,3 +18,5 @@ ex: Components - User - List
 CONVENTION
   - enum: PascalCase
   - constant: UPPERCASE (ex: EXACT_ROUTER)
+  - Function Name -> handle...
+  - Function Component Name -> on...
