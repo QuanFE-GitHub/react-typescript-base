@@ -1,0 +1,22 @@
+COMPONENTS:
+  - Folder Name -> PascalCase
+  - File Js components UI -> PascalCase
+  - Import ./*
+  - Image file name img_*_*
+  - Icon file name icon_*_*
+  - Image variable name -> camelCase -> img*
+  - Icon variable name -> camelCase -> icon*
+  - className -> camelCase (ex: eventContainer )
+
+RESPONSIVE BREAKPOINTS
+  - @media screen and (min-width: 992px) {}
+
+STRUCTURE
+ex: Components - User - List
+                      - user.module.scss
+
+CONVENTION
+  - enum: PascalCase
+  - constant: UPPERCASE (ex: EXACT_ROUTER)
+  - Function Name -> handle...
+  - Function Component Name -> on...
