@@ -1,7 +1,5 @@
 import classNames from 'classnames/bind';
-import { useContext } from 'react';
 import { Outlet } from 'react-router-dom';
-import { LoadingContext } from '~/context/LoadingContext';
 import styles from './AuthLayout.module.scss';
 
 const cx = classNames.bind(styles);
