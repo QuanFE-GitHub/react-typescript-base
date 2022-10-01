@@ -1,30 +1,42 @@
 import { createSlice } from '@reduxjs/toolkit';
-import type { PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from '~/stores/store';
+import { RootState } from '../../stores/store';
+import { StorageConstants } from '../../utils/constants';
+import { fetchLogin } from './authThunk';
 
-interface IAuthState {
-  token: string;
+interface UserState {
+  userRole: {} | any;
+  accessToken: null | any;
 }
 
-// Define the initial state using that type
-const initialState: IAuthState = {
-  token: '',
+const roleLocal: any = localStorage.getItem(StorageConstants.CURRENT_USER);
+
+const initialState: UserState = {
+  userRole: JSON.parse(roleLocal) || '',
+  accessToken: localStorage.getItem(StorageConstants.ACCESS_TOKEN) || '',
 };
 
-export const authSlice = createSlice({
+const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {
-    login: (state) => {},
-    loginSuccess: (state, action: PayloadAction<string>) => {
-      state.token = 'has token';
-    },
+  reducers: {},
+  extraReducers(builder) {
+    builder
+      .addCase(fetchLogin.pending, (state, action) => {})
+      .addCase(fetchLogin.fulfilled, (state, action) => {
+        state.userRole = action.payload.user;
+        state.accessToken = action.payload.token;
+      })
+      .addCase(fetchLogin.rejected, (state, action) => {});
   },
 });
 
-export const { login, loginSuccess } = authSlice.actions;
+export const AuthSliceAction = authSlice.actions;
 
-// Other code such as selectors can use the imported `RootState` type
-export const selectToken = (state: RootState) => state.counter.token;
+export const selectFetchUserRole = (state: RootState) =>
+  state.auth.userRole.role;
+export const selectFetchUserToken = (state: RootState) =>
+  state.auth.accessToken;
 
-export default authSlice.reducer;
+const authReducer = authSlice.reducer;
+
+export default authReducer;
