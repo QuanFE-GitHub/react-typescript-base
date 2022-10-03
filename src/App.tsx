@@ -2,13 +2,11 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { AuthLayout } from './layouts';
 import { authRoutes } from './utils/routers';
 import './App.less';
-import ModalComponent from './pages/admin/modal';
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<Navigate to={'auth'} />}></Route>
-      <Route path='/modal' element={<ModalComponent />}></Route>
 
       <Route path='auth' element={<AuthLayout />}>
         {authRoutes.map((route, key) => {

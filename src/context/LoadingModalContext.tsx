@@ -1,5 +1,5 @@
 import React, { createContext, useState } from 'react';
-import { Loading } from '../components/commons';
+import { LoadingModal } from '../components/commons';
 
 type TLoadingModalProps = {
   children: React.ReactNode;
@@ -24,7 +24,7 @@ const LoadingModalProvider = (props: TLoadingModalProps) => {
 
   return (
     <LoadingModalContext.Provider value={value}>
-      {loading && <Loading />}
+      {loading && <LoadingModal />}
       {props.children}
     </LoadingModalContext.Provider>
   );

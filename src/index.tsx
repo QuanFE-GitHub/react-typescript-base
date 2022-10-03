@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
+
+import App from './App';
+import { store } from './stores/store';
 import { GlobalStyles } from './components/commons';
 import { LoadingProvider } from './context/LoadingContext';
-import { Provider } from 'react-redux';
-import { store } from './stores/store';
-import { LoadingModalProvider } from './context/LoadingModalContex';
+import { LoadingModalProvider } from './context/LoadingModalContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
