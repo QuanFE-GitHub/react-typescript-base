@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { AuthLayout } from '~/layouts/index';
 
 interface IAdminLayoutProps {}
 

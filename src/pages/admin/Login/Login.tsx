@@ -1,8 +1,7 @@
 import { Button, Input, Form, Checkbox } from 'antd';
-import { ExclamationCircleOutlined } from '@ant-design/icons';
 import { useContext } from 'react';
 import { LoadingContext } from '../../../context/LoadingContext';
-import { messageSuccess, showDeleteConfirm } from '../../../utils/helps';
+import { messageSuccess } from '../../../utils/helps';
 import './login.css';
 
 type TLogin = {};
@@ -83,26 +82,6 @@ const Login: React.FC = (props: TLogin) => {
           </Button>
         </Form.Item>
       </Form>
-
-      {/* Demo */}
-      <Button
-        type='primary'
-        onClick={() =>
-          showDeleteConfirm(
-            'Are you sure delete this task?',
-            <ExclamationCircleOutlined />,
-            'Some descriptions',
-            () => {
-              console.log('ok');
-            },
-            () => {
-              console.log('cancel');
-            }
-          )
-        }
-      >
-        Delete
-      </Button>
     </div>
   );
 };
