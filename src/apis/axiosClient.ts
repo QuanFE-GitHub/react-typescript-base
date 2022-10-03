@@ -15,9 +15,7 @@ axiosClient.interceptors.request.use(
   function (config: AxiosRequestConfig) {
     // Do something before request is sent
     if (!config?.headers) {
-      throw new Error(
-        "Expected 'config' and 'config.headers' not to be undefined"
-      );
+      throw new Error("Expected 'config' and 'config.headers' not to be undefined");
     }
     const token = localStorage.getItem(StorageConstants.ACCESS_TOKEN);
     // const token = process.env.TOKEN;
@@ -37,8 +35,7 @@ axiosClient.interceptors.response.use(
 
   function (error) {
     if (
-      (error.response.status === 401 &&
-        error.response.data.message === 'Unauthorized') ||
+      (error.response.status === 401 && error.response.data.message === 'Unauthorized') ||
       (error.response.status === 500 &&
         error.response.data.message === 'Error: invalid signature') ||
       (error.response.status === 500 &&

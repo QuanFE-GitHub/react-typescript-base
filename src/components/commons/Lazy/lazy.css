@@ -1,0 +1,29 @@
+.lazyComponent {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lazyLogo {
+  transition: all 0.3s linear;
+  animation: lazy 1.5s linear infinite alternate;
+}
+
+@keyframes lazy {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
