@@ -1,14 +1,16 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { AuthLayout } from './layouts';
+import DemoComponent from './pages/DemoComponent/DemoComponent';
+
 import { authRoutes } from './utils/routers';
+
 import './App.less';
-import { ModalComponent } from './components/specifics';
 
 function App() {
   return (
     <Routes>
       <Route path='/' element={<Navigate to={'auth'} />}></Route>
-      <Route path='/modal' element={<ModalComponent />} />
+      <Route path='/modal' element={<DemoComponent />} />
 
       <Route path='auth' element={<AuthLayout />}>
         {authRoutes.map((route, key) => {
