@@ -23,11 +23,7 @@ function App() {
                   <Route path={route.path} element={<Page />} />
                 </>
               ) : (
-                <Route
-                  index={route.index ?? false}
-                  path={route.path}
-                  element={<Page />}
-                />
+                <Route index={route.index ?? false} path={route.path} element={<Page />} />
               )}
             </React.Fragment>
           );
