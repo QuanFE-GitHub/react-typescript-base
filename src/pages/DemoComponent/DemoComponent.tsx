@@ -5,6 +5,7 @@ import { LoadingModalContext } from '../../context/LoadingModalContext';
 
 import ModalCustom from '../../components/commons/ModalCustom/ModalCustom';
 import { TextAreaComponent } from './../../components/commons';
+import DropdownComponent from './../../components/commons/Dropdown/Dropdown';
 
 const DemoComponent: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -37,6 +38,9 @@ const DemoComponent: React.FC = () => {
       </div>
       <div>
         <TextAreaComponent onChange={onChange} />
+      </div>
+      <div style={{ marginTop: '30px' }}>
+        <DropdownComponent />
       </div>
     </div>
   );

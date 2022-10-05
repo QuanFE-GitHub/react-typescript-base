@@ -91,7 +91,7 @@ const TextAreaComponent = (props: TextAreaComponentProps) => {
   );
 };
 
-const TextAreaProps = {
+const TextAreaDefault = {
   name: 'textArea',
   rows: 4,
   cols: 4,
@@ -117,6 +117,6 @@ const TextAreaProps = {
   onPressEnter: null,
 };
 
-TextAreaComponent.defaultProps = TextAreaProps;
+TextAreaComponent.defaultProps = TextAreaDefault;
 
 export default TextAreaComponent;
