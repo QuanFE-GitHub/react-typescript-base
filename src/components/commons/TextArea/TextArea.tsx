@@ -61,6 +61,7 @@ const TextAreaComponent = (props: TextAreaComponentProps) => {
     onResize,
     onPressEnter,
   } = props;
+
   return (
     <div className={cx('textArea')}>
       <TextArea
@@ -105,9 +106,8 @@ const TextAreaDefault = {
   form: '',
   maxLength: 200,
   minLength: 0,
-  // value,
   wrap: '',
-  showCount: true,
+  showCount: false,
   bordered: true,
   allowClear: false,
   autoSize: false,
