@@ -1,69 +1,70 @@
-import { Button, Dropdown, DropdownProps, Menu, Space } from 'antd';
+import { Button, Dropdown, Menu, Space } from 'antd';
+import classNames from 'classnames/bind';
 
-import { DownOutlined } from '@ant-design/icons';
+import downOutlineIcon from './../../../assets/icons/down_outline_icon.svg';
 
-const menu = (
-  <Menu
-    items={[
-      {
-        label: <a href='https://www.antgroup.com'>1st menu item</a>,
-        key: '0',
-      },
-      {
-        label: <a href='https://www.aliyun.com'>2nd menu item</a>,
-        key: '1',
-      },
-      {
-        type: 'divider',
-      },
-      {
-        label: '3rd menu item',
-        key: '3',
-      },
-    ]}
-  />
-);
+import styed from './dropdown.module.scss';
 
-const DropdownComponent = (props: DropdownProps) => {
-  const { overlay, trigger, children } = props;
+const cx = classNames.bind(styed);
+
+interface DropDownProps {
+  overlay?: React.ReactElement;
+  trigger?: ('click' | 'hover' | 'contextMenu')[];
+  children?: React.ReactNode;
+  items?: [];
+  width?: string;
+}
+
+const item = [
+  {
+    label: <a href=''>1st menu item</a>,
+    key: '0',
+  },
+  {
+    label: <a href=''>2nd menu item</a>,
+    key: '1',
+  },
+  // {
+  //   type: 'divider',
+  // },
+  {
+    label: '3rd menu item',
+    key: '3',
+  },
+];
+
+const DropdownComponent = (props: DropDownProps) => {
+  const { trigger, children, items, width } = props;
+
+  const style = {
+    borderRadius: '6px',
+  };
+
+  const menu = <Menu style={style} items={items} />;
 
   return (
     <>
-      <Dropdown overlay={overlay} trigger={trigger}>
-        <Button>{children}</Button>
+      <Dropdown className={cx('dropDown')} overlay={menu} trigger={trigger}>
+        <Button className={cx('button')} style={{ width: `${width}` }}>
+          <Space className={cx('space')}>
+            <span className={cx('children')}> {children}</span>
+            <img src={downOutlineIcon} alt='icon' />
+          </Space>
+        </Button>
       </Dropdown>
     </>
   );
 };
 
 const DropDownDefault = {
-  autoFocus: false,
-  arrow: false,
+  items: item,
+  // autoFocus: false,
+  // arrow: false,
   trigger: 'click',
-  overlay: menu,
-  open: true,
-  disabled: false,
-  destroyPopupOnHide: false,
-  // align?: Align;
-  // prefixCls?: string;
-  className: '',
-  // transitionName?: string;
-  placement: 'bottomLeft',
-  overlayClassName: '',
-  overlayStyle: '',
-  // forceRender?: boolean,
-  // mouseEnterDelay?: number,
-  // mouseLeaveDelay?: number,
-  // openClassName?: string,
-  children: (
-    <Space>
-      Click me
-      <DownOutlined />
-    </Space>
-  ),
-
-  getPopupContainer: null,
-  onOpenChange: null,
+  width: 'auto',
+  // open: true,
+  // disabled: false,
+  children: <>Click me</>,
 };
 
 DropdownComponent.defaultProps = DropDownDefault;

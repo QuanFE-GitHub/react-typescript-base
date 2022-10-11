@@ -6,6 +6,7 @@ import { LoadingModalContext } from '../../context/LoadingModalContext';
 import ModalCustom from '../../components/commons/ModalCustom/ModalCustom';
 import { TextAreaComponent } from './../../components/commons';
 import DropdownComponent from './../../components/commons/Dropdown/Dropdown';
+import FriendList from './../../components/specifics/FriendList/FriendList';
 
 const DemoComponent: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -34,13 +35,18 @@ const DemoComponent: React.FC = () => {
     <div style={{ height: '100%' }}>
       <div>
         <Button onClick={handleShow}>Modal</Button>
-        <ModalCustom open={open} onOk={onOk} onCancel={onCancel} />
+        <ModalCustom open={open} width={'80%'} onOk={onOk} onCancel={onCancel}>
+          <FriendList />
+        </ModalCustom>
       </div>
       <div>
         <TextAreaComponent onChange={onChange} />
       </div>
       <div style={{ marginTop: '30px' }}>
-        <DropdownComponent />
+        <DropdownComponent>Dropdown</DropdownComponent>
+      </div>
+      <div style={{ marginTop: '30px' }}>
+        <FriendList />
       </div>
     </div>
   );

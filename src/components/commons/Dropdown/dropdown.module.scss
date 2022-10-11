@@ -1,0 +1,17 @@
+.button {
+  border: none !important;
+  background: #efeefc !important;
+  border-radius: 6px !important;
+}
+
+.space {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+
+  .children {
+    font-family: DM Sans;
+    font-weight: 400;
+    font-size: 16px;
+  }
+}
