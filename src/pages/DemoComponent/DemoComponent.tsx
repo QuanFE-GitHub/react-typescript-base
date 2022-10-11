@@ -31,6 +31,26 @@ const DemoComponent: React.FC = () => {
   const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     console.log('Change:', e.target.value);
   };
+
+  const onFetchApi = (data: string) => {
+    console.log('Call api:', data);
+  };
+
+  const items = [
+    {
+      label: 'Tất cả',
+      key: '0',
+    },
+    {
+      label: 'DropDown 1',
+      key: '1',
+    },
+    {
+      label: 'DropDown 2',
+      key: '2',
+    },
+  ];
+
   return (
     <div style={{ height: '100%' }}>
       <div>
@@ -43,7 +63,7 @@ const DemoComponent: React.FC = () => {
         <TextAreaComponent onChange={onChange} />
       </div>
       <div style={{ marginTop: '30px' }}>
-        <DropdownComponent>Dropdown</DropdownComponent>
+        <DropdownComponent items={items} width={'150px'} onFetchApi={onFetchApi} />
       </div>
       <div style={{ marginTop: '30px' }}>
         <FriendList />
