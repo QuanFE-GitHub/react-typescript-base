@@ -1,115 +1,43 @@
+import classNames from 'classnames/bind';
 import { Modal, ModalProps } from 'antd';
 
-import { CloseOutlined } from '@ant-design/icons';
+import closeIcon from './../../../assets/icons/close_icon.svg';
+
+import styled from './modalCustom.module.scss';
+import './modalCustom.scss';
+
+const cx = classNames.bind(styled);
 
 const ModalCustom = (props: ModalProps) => {
-  const {
-    title,
-    open,
-    centered,
-    okType,
-    okText,
-    cancelText,
-    closable,
-    closeIcon,
-    cancelButtonProps,
-    okButtonProps,
-    confirmLoading,
-    destroyOnClose,
-    focusTriggerAfterClose,
-    children,
-    width,
-    mask,
-    forceRender,
-    bodyStyle,
-    maskStyle,
-    className,
-    wrapClassName,
-    keyboard,
-    zIndex,
-    footer,
-    maskClosable,
-    getContainer,
-
-    afterClose,
-    modalRender,
-    onOk,
-    onCancel,
-  } = props;
+  const { title, centered, closable, closeIcon, children, maskClosable, footer } = props;
 
   return (
-    <>
+    <div id='modalCustom'>
       <Modal
         title={title}
         centered={centered}
-        width={width}
-        mask={mask}
-        forceRender={forceRender}
-        bodyStyle={bodyStyle}
-        maskStyle={maskStyle}
-        className={className}
-        wrapClassName={wrapClassName}
-        keyboard={keyboard}
-        zIndex={zIndex}
-        footer={footer}
-        getContainer={getContainer}
         maskClosable={maskClosable}
-        open={open}
-        okType={okType}
-        okText={okText}
-        cancelText={cancelText}
         closable={closable}
         closeIcon={closeIcon}
-        okButtonProps={okButtonProps}
-        cancelButtonProps={cancelButtonProps}
-        confirmLoading={confirmLoading}
-        destroyOnClose={destroyOnClose}
-        focusTriggerAfterClose={focusTriggerAfterClose}
-        onOk={onOk}
-        onCancel={onCancel}
-        afterClose={afterClose}
-        modalRender={modalRender}
+        className='modal'
+        footer={footer}
+        {...props}
       >
-        {children}
+        <div className={cx('children')}>{children}</div>
       </Modal>
       <br />
       <br />
-    </>
+    </div>
   );
 };
 
 const defaultProps = {
-  title: 'Modal',
-  open: false,
+  title: 'Modal Component',
   centered: true,
-  okType: 'primary',
-  okText: 'Ok',
-  cancelText: 'Cancel',
-  closable: true,
-  closeIcon: <CloseOutlined />,
-  cancelButtonProps: '' || '' || null,
-  okButtonProps: '' || '' || null,
-  confirmLoading: false,
-  destroyOnClose: false,
-  focusTriggerAfterClose: true,
+  closeIcon: <img src={closeIcon} alt='closeIcon' />,
   children: <p>Modal Custom</p>,
-  width: '400px',
-  mask: true,
-  forceRender: false,
-  bodyStyle: null,
-  maskStyle: null,
-  className: '',
-  wrapClassName: '',
-  keyboard: true,
-  zIndex: 1000,
-  // footer: true,
-  maskClosable: true,
-  getContainer: document.body,
-
-  afterClose: null,
-  modalRender: null,
-  onOk: null,
-  onCancel: null,
+  maskClosable: false,
+  footer: null,
 };
 
 ModalCustom.defaultProps = defaultProps;

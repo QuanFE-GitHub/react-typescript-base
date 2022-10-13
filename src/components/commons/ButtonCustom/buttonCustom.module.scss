@@ -1,0 +1,21 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #766cfd;
+  border-radius: 6px !important;
+
+  &:hover {
+    background: #2a1ecf;
+  }
+
+  .primary {
+    font-family: 'DM Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #ffffff;
+  }
+}

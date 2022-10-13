@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Avatar, List, Checkbox, Form } from 'antd';
 import { CheckboxChangeEvent } from 'antd/lib/checkbox';
 import styled from './friendList.module.scss';
@@ -7,6 +7,7 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styled);
 
 interface FriendListProps {
+  id?: string;
   gender?: string;
   name?: string;
   email?: string;
@@ -19,36 +20,45 @@ const picture =
 
 const data = [
   {
+    id: '1',
     name: 'Friend List1',
     email: 'friendlist@gmail.com',
     picture: picture,
     checkBox: false,
   },
   {
+    id: '2',
+
     name: 'Friend List2',
     email: 'friendlist@gmail.com',
     picture: picture,
     checkBox: false,
   },
   {
+    id: '3',
+
     name: 'Friend List3',
     email: 'friendlist@gmail.com',
     picture: picture,
     checkBox: false,
   },
   {
+    id: '4',
+
     name: 'Friend List4',
     email: 'friendlist@gmail.com',
     picture: picture,
     checkBox: false,
   },
   {
+    id: '5',
     name: 'Friend List5',
     email: 'friendlist@gmail.com',
     picture: picture,
     checkBox: false,
   },
   {
+    id: '6',
     name: 'Friend List6',
     email: 'friendlist@gmail.com',
     picture: picture,
@@ -56,37 +66,39 @@ const data = [
   },
 ];
 
-const onChange = (e: CheckboxChangeEvent) => {
-  console.log(`checked = `, e.target);
-};
-
 const FriendList = () => {
   const [form] = Form.useForm();
-  const onFieldsChange = (data: any) => {
+  const [dataArr, setDataArr] = useState([]);
+  const onFieldsChange = ({ data }: any) => {
     console.log('onFieldsChange.changedFields => ', data);
     console.log('onFieldsChange.allFields=> ');
   };
 
+  const onChange = (e: CheckboxChangeEvent) => {
+    console.log(`checked = `, e.target);
+    setDataArr(dataArr.concat(e.target.value));
+  };
+
+  console.log(`dataArr = `, dataArr);
+
   return (
     <div className={cx('list')}>
-      <Form form={form} onFieldsChange={onFieldsChange}>
-        <Form.Item>
-          <List
-            dataSource={data}
-            renderItem={(item: FriendListProps, idx: React.Key) => (
-              <List.Item key={idx}>
-                <List.Item.Meta
-                  avatar={<Avatar src={item.picture} />}
-                  title={item.name}
-                  // description={item.email}
-                />
-                <Form.Item name='checked'>
-                  <Checkbox defaultChecked={item.checkBox} onChange={onChange}></Checkbox>
-                </Form.Item>
-              </List.Item>
-            )}
-          />
-        </Form.Item>
+      <Form onFinish={onFieldsChange}>
+        <List
+          dataSource={data}
+          renderItem={(item: FriendListProps, idx: React.Key) => (
+            <List.Item key={idx}>
+              <List.Item.Meta avatar={<Avatar src={item.picture} />} title={item.name} />
+              <Form.Item name={item.id} valuePropName='checked'>
+                <Checkbox
+                  defaultChecked={item.checkBox}
+                  value={item}
+                  onChange={onChange}
+                ></Checkbox>
+              </Form.Item>
+            </List.Item>
+          )}
+        />
       </Form>
     </div>
   );

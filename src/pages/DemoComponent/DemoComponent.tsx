@@ -2,11 +2,13 @@ import { Button } from 'antd';
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import { LoadingModalContext } from '../../context/LoadingModalContext';
+import { SearchOutlined } from '@ant-design/icons';
 
 import ModalCustom from '../../components/commons/ModalCustom/ModalCustom';
 import { TextAreaComponent } from './../../components/commons';
 import DropdownComponent from './../../components/commons/Dropdown/Dropdown';
 import FriendList from './../../components/specifics/FriendList/FriendList';
+import ButtonCustom from './../../components/commons/ButtonCustom/ButtonCustom';
 
 const DemoComponent: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -54,8 +56,8 @@ const DemoComponent: React.FC = () => {
   return (
     <div style={{ height: '100%' }}>
       <div>
-        <Button onClick={handleShow}>Modal</Button>
-        <ModalCustom open={open} width={'80%'} onOk={onOk} onCancel={onCancel}>
+        <ButtonCustom type='primary' onClick={handleShow} icon={<SearchOutlined />} />
+        <ModalCustom open={open} width={'644px'} onOk={onOk} onCancel={onCancel}>
           <FriendList />
         </ModalCustom>
       </div>
