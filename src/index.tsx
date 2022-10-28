@@ -9,6 +9,7 @@ import { store } from './stores/store';
 import { GlobalStyles } from './components/commons';
 import { LoadingProvider } from './context/LoadingContext';
 import { LoadingModalProvider } from './context/LoadingModalContext';
+// import { GoogleOAuthProvider } from '@react-oauth/google';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(
@@ -18,7 +19,9 @@ root.render(
         <GlobalStyles>
           <LoadingModalProvider>
             <LoadingProvider>
+              {/* <GoogleOAuthProvider clientId='43775836214-5e620ol86jgjglbrgj3hurd26fclbm89.apps.googleusercontent.com'> */}
               <App />
+              {/* </GoogleOAuthProvider> */}
             </LoadingProvider>
           </LoadingModalProvider>
         </GlobalStyles>
